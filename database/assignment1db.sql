@@ -1,58 +1,71 @@
 /* Create Post and Comment tables */
 
 CREATE TABLE post (
-	Id INTEGER PRIMARY KEY,
-	Title VARCHAR(50) NOT NULL,
-    Author VARCHAR(50),
-	Message TEXT,
-	PostTimestamp DATE NOT NULL,
-    Icon_link VARCHAR(80) NOT NULL
+	id INTEGER PRIMARY KEY,
+	title VARCHAR(50) NOT NULL,
+    author INTEGER NOT NULL REFERENCES user(id),
+	message TEXT,
+	timestamp DATE NOT NULL,
+    iconLink VARCHAR(80) NOT NULL
 );
 
 CREATE TABLE comment (
-	Id INTEGER PRIMARY KEY,
-	Author VARCHAR(50) NOT NULL,
-	Message VARCHAR(200) NOT NULL,
-	Post_id INTEGER NOT NULL REFERENCES Post(Id)
+	id INTEGER PRIMARY KEY,
+	author VARCHAR(50) NOT NULL,
+	message VARCHAR(200) NOT NULL,
+	post_id INTEGER NOT NULL REFERENCES post(id)
+);
+
+CREATE TABLE user (
+	id INTEGER PRIMARY KEY,
+	name VARCHAR(20) UNIQUE NOT NULL
 );
 
 /* Insert dummy data for testing 
 
 Posts: */
 
-INSERT INTO Post(Title, Author, Message, PostTimestamp, Icon_link)
-	VALUES 
-	("Test post title #1", "Joe Burton", "Hello World, this is the message of test post #1", "2019-08-21", "placeholder-link");
+INSERT INTO User(name)
+	VALUES
+	("joe burton");
 
-INSERT INTO Post(Title, Author, Message, PostTimestamp, Icon_link)
-	VALUES 
-	("Test post title #2", "Joe Burton", "This is the message of test post #2", "2019-08-21", "placeholder-link");
+INSERT INTO User(name)
+	VALUES
+	("steve smith");
 
-INSERT INTO Post(Title, Author, Message, PostTimestamp, Icon_link)
+INSERT INTO Post(title, author, message, timestamp, iconLink)
 	VALUES 
-	("Test post title #3", "Joe Burton", "This is the message of text post #3", "2019-08-21", "placeholder-link");
+	("Test post title #1", 1, "Hello World, this is the message of test post #1", "2019-08-21", "placeholder-link");
+
+INSERT INTO Post(title, author, message, timestamp, iconLink)
+	VALUES 
+	("Test post title #2", 1, "This is the message of test post #2", "2019-08-21", "placeholder-link");
+
+INSERT INTO Post(title, author, message, timestamp, iconLink)
+	VALUES 
+	("Test post title #3", 1, "This is the message of text post #3", "2019-08-21", "placeholder-link");
 
 /* Comments: */
-INSERT INTO Comment(Author, Message, Post_id)
+INSERT INTO Comment(author, message, post_id)
 	VALUES 
-	("Steve Smith", "A comment message on post 1", 1);
+	(2, "A comment message on post 1", 1);
 
-INSERT INTO Comment(Author, Message, Post_id)
+INSERT INTO Comment(author, message, post_id)
 	VALUES 
-	("Steve Smith", "Another comment message on post 1", 1);
+	(2, "Another comment message on post 1", 1);
 
-INSERT INTO Comment(Author, Message, Post_id)
+INSERT INTO Comment(author, message, post_id)
 	VALUES 
-	("Steve Smith", "A comment message on post 2", 2);
+	(2, "A comment message on post 2", 2);
 
-INSERT INTO Comment(Author, Message, Post_id)
+INSERT INTO Comment(author, message, post_id)
 	VALUES 
-	("Steve Smith", "Another comment message on post 2", 2);
+	(2, "Another comment message on post 2", 2);
 
-INSERT INTO Comment(Author, Message, Post_id)
+INSERT INTO Comment(author, message, post_id)
 	VALUES 
-	("Steve Smith", "A comment message on post 3", 3);
+	(2, "A comment message on post 3", 3);
 
-INSERT INTO Comment(Author, Message, Post_id)
+INSERT INTO Comment(author, message, post_id)
 	VALUES 
-	("Steve Smith", "Another comment message on post 3", 3);
+	(2, "Another comment message on post 3", 3);
