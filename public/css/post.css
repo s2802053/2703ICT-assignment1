@@ -1,0 +1,35 @@
+* {
+    margin: 0px;
+}
+
+.post {
+    border: 1px solid black;
+    height: 32vh;
+    padding: 10px;
+    margin-top: 25px;
+}
+
+.post img {
+    float: left;
+    width: 30%;
+    width: 128px;
+    height: 128px;
+}
+
+.post-content {
+    float: right;
+    width: 65%;
+}
+
+.post-author {
+    padding-left: 20px;
+}
+
+.post-timestamp {
+    font-size: 9px;
+    padding: 5px 0px 10px 20px;
+}
+
+.post-title{
+    margin-bottom: 10px;
+}
