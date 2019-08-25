@@ -12,8 +12,8 @@
     <div id="usersList">
         @forelse($users as $user)
             <div class="user">
-                <p class="username"> {{ $user }} </p>
-                <a class="show-posts-link" href="#">View Posts</a>
+                <p class="username"> {{ $user->name }} </p>
+                <a class="show-posts-link" href="user_posts/{{$user->id}}">View Posts</a>
             </div>
             <br>
         @empty

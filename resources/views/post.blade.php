@@ -15,19 +15,19 @@
 
 @section('content')
     <div class="post">
-        <h4 class="post-author">{{ $post['author'] }}</h4>
-        <p class="post-timestamp">{{ $post['date'] }}</p>
+        <h4 class="post-author">{{ $post->author }}</h4>
+        <p class="post-timestamp">{{ $post->timestamp }}</p>
         <img src="{{asset('default-icon.png')}}">
         <div class="post-content">
-            <h5 class="post-title">{{ $post['title'] }}</h5>
-            <p class="post-message">{{ $post['message'] }}</p>
+            <h5 class="post-title">{{ $post->title }}</h5>
+            <p class="post-message">{{ $post->message }}</p>
         </div>
     </div>
     Comments:
     @forelse($comments as $comment)
         <div class="comment">
-            <h5>{{$comment['author']}}</h5>
-            <p>{{$comment['message']}}</p>
+            <h5>{{$comment->author}}</h5>
+            <p>{{$comment->message}}</p>
         </div>
     @empty
         No comments found.

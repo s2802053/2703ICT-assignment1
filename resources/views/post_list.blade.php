@@ -16,12 +16,12 @@
 @section('content')
     @forelse($posts as $post)
         <div class="post">
-            <h4 class="post-author">{{ $post['author'] }}</h4>
-            <p class="post-timestamp">{{ $post['date'] }}</p>
+            <h4 class="post-author">{{ $post->name }}</h4>
+            <p class="post-timestamp">{{ $post->timestamp }}</p>
             <img src="{{asset('default-icon.png')}}">
             <div class="post-content">
-                <h5 class="post-title">{{ $post['title'] }}</h5>
-                <p class="post-message">{{ $post['message'] }}</p>
+                <h5 class="post-title">{{ $post->title }}</h5>
+                <p class="post-message">{{ $post->message }}</p>
             </div>
         </div>
     @empty
