@@ -33,3 +33,22 @@
 .post-title{
     margin-bottom: 10px;
 }
+
+.create-post{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.topRow{
+    display: inline-block;
+    margin-right: 5vh;
+}
+
+#bottomRow{
+    padding: 10px 0px;
+}
+
+#messageInput{
+    width: 60%;
+    height: 25%;
+}
